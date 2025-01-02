@@ -39,10 +39,10 @@ def gradient_descent(X,T,N):
     converged = False
     while loss > 0.001 and not converged:
         loss = round(loss_function(w,b,X,T,N),7)
-        print("at iteration ",iteration, " Loss: ",loss )
         if previous_loss == loss:
             print("Converged at iteration:", iteration, " Loss: ",loss )
             converged = True
+        #print("At iteration: ",iteration, " loss: ",loss )
         old_b,old_w = b,w
         b_gradient,w_gradient = loss_gradient(old_w,old_b,learning_rate,X,T,N)  # gradients of b and w
         b = round(old_b-b_gradient,4)
@@ -54,7 +54,7 @@ def gradient_descent(X,T,N):
 def linear_regression(X,T):
     N = float(len(X))
     b,w = gradient_descent(X,T,N)
-    print(f'Linreg Equation: y = {b} + {w}x')
+    print(f'LinReg Equation: y = {b} + {w}x')
 
 
 
